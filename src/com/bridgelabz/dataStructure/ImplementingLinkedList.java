@@ -59,9 +59,9 @@ public class ImplementingLinkedList<G> {
 		else {
 			// @param current is used traverse through the linked list until it reaches null 
 			Node<G> current = head;
-		    while (current != null) {
-			System.out.print(current.data + " --> ");
-			current = current.next;
+		    while(current != null) {
+			    System.out.print(current.data + " --> ");
+			    current = current.next;
 		    }
 		System.out.println("null");
 		}
@@ -70,7 +70,7 @@ public class ImplementingLinkedList<G> {
 	public void print(String storingLocation) {
 		Node<G> current = head;
 		while(current != null) {
-			Utility.writeToFile((String)current.data, storingLocation);
+			Utility.writeDataToFile((String)current.data, storingLocation);
 			current = current.next;
 		}
 		System.out.println("File updated");

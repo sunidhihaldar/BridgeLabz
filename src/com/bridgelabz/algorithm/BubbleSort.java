@@ -18,7 +18,7 @@ public class BubbleSort {
 	public static void main(String[] args) {
 		int[] array = {10,30,70,90,100,73,47,45,32,23,10,15};
 		Array.print1DArray(array);
-		System.out.println("Bubble Sort");
+		System.out.println("\nBubble Sort");
 		Sorting.bubbleSort(array);
 		Array.print1DArray(array);
 	}

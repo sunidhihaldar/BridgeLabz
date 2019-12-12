@@ -63,7 +63,7 @@ public class Tree {
 	 */
 	
 	public void traverseToAdd(Node current, Node newNode) {
-		if(newNode.data > current.data) {
+		if(newNode.data < current.data) {
 			  if(current.leftChild == null)
                      current.leftChild = newNode;
 		      else
@@ -136,7 +136,7 @@ public class Tree {
 	
 	/**
 	 * Takes root address as input parameter and recursively calls the function unless it 
-	 * finds root as null. Isf it find root as null then it prints the data.
+	 * finds root as null. If it finds root as null then it prints the data.
 	 * 
 	 * @param root address as input parameter.
 	 */
@@ -144,7 +144,7 @@ public class Tree {
 	public void inorderRecurssion(Node root) {
 		if(root != null) {
 			inorderRecurssion(root.leftChild);
-			System.out.println(root.data +" ");
+			System.out.println(root.data + " ");
 			inorderRecurssion(root.rightChild);
 		}
 	}

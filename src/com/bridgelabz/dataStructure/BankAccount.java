@@ -72,7 +72,7 @@ public class BankAccount {
 			if(withdrawalAmount < 0) {
 				transactions.enqueue(withdrawalAmount);
 				this.balance += withdrawalAmount;
-				System.out.println("Rupees " + amount + " got withdrawed \ncurrent balance: " + this.balance);
+				System.out.println("Rupees " + amount + " got withdrawed \nCurrent balance: " + this.balance);
 				System.out.println("All transactions are:");
 				transactions.print();
 			}

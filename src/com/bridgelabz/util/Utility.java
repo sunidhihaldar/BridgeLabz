@@ -56,7 +56,7 @@ public class Utility {
 		return data;
 	}
 	
-    public static void writeToFile(String data, String filename) {
+    public static void writeDataToFile(String data, String filename) {
     	File file = new File(filename);
 		FileWriter writer = null;
 		if(!file.exists()) {
@@ -110,8 +110,8 @@ public class Utility {
     }
     
     public static boolean isAnagram(String firstString, String secondString ) {
-    	char[] character1 = firstString.toLowerCase().trim().replaceAll(" "," ").toCharArray();
-    	char[] character2 = secondString.toLowerCase().trim().replaceAll(" "," ").toCharArray();
+    	char[] character1 = firstString.toLowerCase().trim().replaceAll(" ","").toCharArray();
+    	char[] character2 = secondString.toLowerCase().trim().replaceAll(" ","").toCharArray();
     	if(character1.length != character2.length) {
     		return false;
     	}
@@ -191,11 +191,11 @@ public class Utility {
     	}
     }
     
-    public static String reverseString(String string) {
+    public static String reverseString(String stringVariable) {
     	String reverse = "";
-    	if(!string.isEmpty()) {
-    		for(int i = string.length() - 1; i >= 0; i--) {
-    			reverse += string.charAt(i);
+    	if(!stringVariable.isEmpty()) {
+    		for(int i = stringVariable.length() - 1; i >= 0; i--) {
+    			reverse += stringVariable.charAt(i);
     		}
     	}
     	return reverse;

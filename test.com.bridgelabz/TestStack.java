@@ -1,9 +1,7 @@
 import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.Test;
-
 import com.bridgelabz.dataStructure.Stack;
-//import java.util.EmptyStackException;
+import java.util.EmptyStackException;
 
 class TestStack {
 
@@ -42,11 +40,12 @@ class TestStack {
 		assertEquals(Integer.valueOf(10), stack.pop());
 	}
 	
-//	@Test (expected = EmptyStackException.class)
-//	public void test_Stack_peek_whenNotEmpty() {
+	@Test
+	public void test_Stack_peek_whenNotEmpty() {
 //		stack.push(10);
 //		stack.push(20);
 //		assertEquals(Integer.valueOf(20), stack.peek());
-//	}
-	
+		assertThrows(EmptyStackException.class,()-> stack.peek());
+	}
+	 
 }

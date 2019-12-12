@@ -22,7 +22,7 @@ public class Array {
 	}
 	
 	public static int[] reverseArray(int[] array) {
-		for(int i = 0; i < array.length; i++) {
+		for(int i = 0; i < array.length / 2; i++) {
 			int temporaryVariable = array[i];
 			array[i] = array[array.length - i - 1];
 			array[array.length - i - 1] = temporaryVariable;

@@ -29,7 +29,7 @@ public class BalancedParenthesis {
 		}
 		for(int i = 0; i < inputString.length(); i++) {
 			/**
-			 * Push open parenthesis '(' and pop closed parenthesis ')'. At the end of the
+			 * Push '(' parenthesis and pop ')' parenthesis, at the end of the
 			 * expression if the stack is empty then the arithmetic expression is balanced
 			 */
 			char checkCharacter = inputString.charAt(i);

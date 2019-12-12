@@ -83,7 +83,7 @@ public class Stack<G> {
 	 */
 	
 	public G peek() {
-		if(isEmpty())
+		if(!isEmpty())
 			return top.data;
 		else
 			throw new EmptyStackException();

@@ -16,7 +16,7 @@ public class PrimeNumberInRange {
 	static int[][] array = new int[10][100];
 	
 	/**
-	 * If prime then adds the data ina group of 100 elements till it reaches user defined
+	 * If prime then adds the data in a group of 100 elements till it reaches user defined
 	 * range data
 	 *   
 	 * @param start as integer value

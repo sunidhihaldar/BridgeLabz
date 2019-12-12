@@ -20,6 +20,7 @@ public class BinarySearchTree {
 	 * @param key as input parameter
 	 * @return integer value
 	 */
+	
 	public static int numberOfPossibilitiesOfbinaryTree(int key) {
 		int possiblity = Utility.factorial(2 * key) / (Utility.factorial(key + 1) * Utility.factorial(key));
 		return possiblity;
@@ -27,12 +28,12 @@ public class BinarySearchTree {
 
 	public static void main(String[] args) {
 		Tree binaryTree = new Tree();
-		binaryTree.insertData(50);
-		binaryTree.insertData(30);
-		binaryTree.insertData(20);
-		binaryTree.insertData(40);
 		binaryTree.insertData(70);
+		binaryTree.insertData(30);
 		binaryTree.insertData(60);
+		binaryTree.insertData(40);
+		binaryTree.insertData(50);
+		binaryTree.insertData(20);
 		binaryTree.insertData(80);
 
 		System.out.println("Inorder traversal of the given tree");

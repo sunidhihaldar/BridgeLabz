@@ -49,7 +49,7 @@ public class MergeSort {
 	 * @param higherIndex is the last index in the array
 	 */
 	public void divideArray(int lowerIndex, int higherIndex) {
-		if(lowerIndex < higherIndex) {
+		while(lowerIndex < higherIndex) {
 			int middleIndex = (higherIndex - lowerIndex)/2;
 			
 			// It will sort left side of an array

@@ -1,7 +1,5 @@
 package com.bridgelabz.objectOriented;
 
-import com.bridgelabz.util.JsonUtil;
-
 import com.bridgelabz.util.Utility;
 
 /**
@@ -15,8 +13,8 @@ import com.bridgelabz.util.Utility;
 
 public class AddressBook {
 
-	static AddressBookOperations myAddressBook = new AddressBookOperations("admin");
-	
+	static AddressBookInterface myAddressBook = new AddressBookOperations("admin");
+	static String filename = "C:\\Users\\SONY\\eclipse-workspace\\Fellowships\\src\\com\\bridgelabz\\objectOriented\\AddressBook.json";
 	/**
 	 * Allows user to enter first name, last name, mobile number, address and email id and
 	 * create a new contact by using the Contact Class type static method
@@ -34,8 +32,8 @@ public class AddressBook {
 		System.out.println("Enter email id");
 		String emailId = Utility.SCANNER.next();
 		
-		Contact newContact = Contact.createContact(firstName, lastName, mobileNumber, address, emailId);
-	    if(myAddressBook.addNewContact(newContact))
+		Contact newContactDetail = Contact.createContact(firstName, lastName, mobileNumber, address, emailId);
+	    if(myAddressBook.addingContact(newContactDetail))
 	    	System.out.println("New contact: " + firstName + " added");
 	    else
 	    	System.out.println("Contact: " + firstName + " already exists");
@@ -63,8 +61,8 @@ public class AddressBook {
 		System.out.println("Enter email id");
 		String emailId = Utility.SCANNER.next();
 		
-		Contact newContact = Contact.createContact(firstName, lastName, mobileNumber, address, emailId);
-	    if(myAddressBook.updateContact(existingContactInRecord, newContact))
+		Contact newContactDetail = Contact.createContact(firstName, lastName, mobileNumber, address, emailId);
+	    if(myAddressBook.updatingContact(existingContactInRecord, newContactDetail))
 	    	System.out.println("Contact updated");
 	    else
 	    	System.out.println("Contact updating error");
@@ -84,7 +82,7 @@ public class AddressBook {
 			return;
 		}
 		
-		if(myAddressBook.deleteContact(existingContactInRecord))
+		if(myAddressBook.deletingContact(existingContactInRecord))
 	    	System.out.println("Contact deleted");
 	    else
 	    	System.out.println("Contact error deleting");
@@ -111,11 +109,6 @@ public class AddressBook {
 				"\nEmail Id: " + existingContactInRecord.getEmailId());
 	}
 	
-	public static String writeDataToJson() {
-		String addressBook = JsonUtil.convertJavaToJson(myAddressBook.addressBook);
-		return addressBook;
-	}
-	
 	public static void main(String[] args) {
 		System.out.println("Enter the name of the address book");
 		String addressBookName = Utility.SCANNER.next();
@@ -126,34 +119,37 @@ public class AddressBook {
 		System.out.println("1. Add new contact \n2. Update existing contact \n3. Remove existing contact"
 				+ "\n4. Search for a contact \n5. Print all details of the address book "
 				+ "\n6. Print contact full names \n7. Quit the application");
-	    boolean quit = false;
-	    while(!quit) {
+	    boolean exit = false;
+	    while(!exit) {
 	    	System.out.println("Choose an option:");
             int choice = Utility.intInput();
             switch(choice) {
             case 1: 
             	addNewContact();
-            	Utility.writeToFile(writeDataToJson(), "C:\\Users\\SONY\\eclipse-workspace\\Fellowships\\src\\com\\bridgelabz\\objectOriented\\AddressBook.json");
+            	System.out.println("Data adding to Json file.....");
+            	Utility.writeDataToFile(myAddressBook.writeDataToJson(), filename);
                 break;
             case 2: 
             	updateContact();
-            	Utility.writeToFile(writeDataToJson(), "C:\\Users\\SONY\\eclipse-workspace\\Fellowships\\src\\com\\bridgelabz\\objectOriented\\AddressBook.json");
+            	System.out.println("Updated data adding to Json file.....");
+            	Utility.writeDataToFile(myAddressBook.writeDataToJson(), filename);
                 break;
             case 3:
             	deleteContact();
-            	Utility.writeToFile(writeDataToJson(), "C:\\Users\\SONY\\eclipse-workspace\\Fellowships\\src\\com\\bridgelabz\\objectOriented\\AddressBook.json");
+            	System.out.println("Updated data adding to Json file.....");
+            	Utility.writeDataToFile(myAddressBook.writeDataToJson(), filename);
             	break;
             case 4:
             	searchDetailsOfContact();	
             	break;
             case 5:
-            	myAddressBook.printDetailsOFContact();
+            	myAddressBook.printingContactDetails();
             	break;
             case 6:
             	myAddressBook.printFullName();
             	break;
             case 7:
-            	quit = true;
+            	exit = true;
             	System.out.println("Thank You");
             	break;
             default:

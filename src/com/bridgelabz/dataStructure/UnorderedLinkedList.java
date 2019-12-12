@@ -27,7 +27,7 @@ public class UnorderedLinkedList {
 		list.insert(Utility.stringInput(),Utility.intInput());
 		System.out.println(list.length());
 		System.out.println(list.printString());
-		Utility.writeToFile(list.printString(), "C:\\Users\\SONY\\Desktop\\helloOutput.txt");
+		Utility.writeDataToFile(list.printString(), "C:\\Users\\SONY\\Desktop\\helloOutput.txt");
 	}
 
 }

@@ -13,7 +13,7 @@ import com.bridgelabz.util.Utility;
  */
 
 public class BankExecution {
-	static Queue<String> line = new Queue<String>();
+	static Queue<String> queue = new Queue<String>();
 	static boolean isQuitApp = false;
 
 	/**
@@ -43,7 +43,7 @@ public class BankExecution {
 			        myAccount.withdrawAmount(Utility.SCANNER.nextDouble());
 			        break;
 			case 3: System.out.println("People in the queue is: ");
-			        line.dequeue();
+			        queue.dequeue();
 			        isTransactionComplete = true;
 			        break;
 			case 4: isTransactionComplete = true;
@@ -62,17 +62,17 @@ public class BankExecution {
 		System.out.println("Enter customer name");
 		for(int i = 0; i < length ; i++) {
 			String customerName = Utility.stringInput();
-			line.enqueue(customerName);
+			queue.enqueue(customerName);
 		}
 		System.out.println("Number of people in the queue:");
-		line.print();
-		int queueLength = line.size();
+		queue.print();
+		int queueLength = queue.size();
 		while(queueLength > 0 && !isQuitApp) {
 			System.out.println("Enter account number");
 			String accountNumber = Utility.SCANNER.next();
 			bankOperations(accountNumber);
 			System.out.println("Remaining people in the queue");
-			line.print();
+			queue.print();
 		}
 	}
 	
