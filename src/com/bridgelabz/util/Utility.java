@@ -10,25 +10,43 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.Scanner;
 
+/**
+ * This class implements reusable functionalities like scanner method, prime number, factorial, palindrome,
+ * leap year, anagram, read file, write to file, print date methods etc. 
+ * @author Sunidhi Haldar
+ * @created 2019-11-15
+ * @version 13.0.1
+ */
+
 public class Utility {
 	
 	public static final Scanner SCANNER = new Scanner(System.in);
 	
+	//takes long input
 	public static long longInput() {
 		return SCANNER.nextLong();
 	}
 	
+	//takes integer input
 	public static int intInput() {
 		return SCANNER.nextInt();
 	}
 	
+	//takes String input
 	public static String stringInput() {
 		return SCANNER.next();
 	}
 	
+	//takes boolean input
 	public static boolean booleanInput() {
 		return SCANNER.nextBoolean();
 	}
+	
+	/**
+	 * To find 2^power defined by user
+	 * @param power as input parameter
+	 * @return integer value
+	 */
 	
 	public static int powerOfTwo(int power) {
 		int result = 0;
@@ -37,6 +55,12 @@ public class Utility {
 		}
 		return result;
 	}
+	
+	/**
+	 * To read the file in String format from the file location
+	 * @param filename is the location of the file
+	 * @return String data from the file
+	 */
 	
 	public static String readFile(String filename) {
 		File file = new File(filename);
@@ -55,6 +79,12 @@ public class Utility {
 //		}
 		return data;
 	}
+	
+	/**
+	 * Takes String data and file location as input parameters and writes the data into the given file location
+	 * @param data of string type
+	 * @param filename is the location of the file
+	 */
 	
     public static void writeDataToFile(String data, String filename) {
     	File file = new File(filename);
@@ -78,6 +108,12 @@ public class Utility {
 		}
 	}
     
+    /**
+     * Checks if a 4-digit number is a leap year or not
+     * @param year as input parameter of integer type
+     * @return Boolean value
+     */
+    
     public static boolean isLeapYear(int year) {
     	if(year >= 1000 && year < 10000) {
     		if((year % 4 ==0 && year % 100 != 0) || year % 400 == 0) {
@@ -89,6 +125,12 @@ public class Utility {
     	}
     	return false;
     }
+    
+    /**
+     * Checks if a number is prime or not
+     * @param number as input parameter of integer type
+     * @return Boolean value
+     */
     
     public static boolean isPrime(int number) {
     	if(number <= 0) {
@@ -109,6 +151,13 @@ public class Utility {
     	return true;
     }
     
+    /**
+     * Checks if two String values are anagram or not, like app and pap
+     * @param firstString as input parameter of String type
+     * @param secondString as input parameter of String type
+     * @return Boolean value
+     */
+    
     public static boolean isAnagram(String firstString, String secondString ) {
     	char[] character1 = firstString.toLowerCase().trim().replaceAll(" ","").toCharArray();
     	char[] character2 = secondString.toLowerCase().trim().replaceAll(" ","").toCharArray();
@@ -126,6 +175,13 @@ public class Utility {
         return false;
     }
     
+    /**
+     * Checks if two integer inputs are anagram or not, like 131 and 113
+     * @param firstNumber as integer input parameter
+     * @param secondNumber as integer input parameter
+     * @return Boolean value
+     */
+    
     public static boolean isAnagram(int firstNumber, int secondNumber ) {
     	char[] character1 = Integer.toString(firstNumber).toCharArray();
     	char[] character2 = Integer.toString(secondNumber).toCharArray();
@@ -140,6 +196,12 @@ public class Utility {
     	}
         return false;
     }
+    
+    /**
+     * Checks if a String input is palindrome or not
+     * @param inputString as integer input parameter 
+     * @return Boolean value
+     */
     
     public static boolean isPalindrome(String inputString) {
     	if(inputString.length() == 0) {
@@ -163,6 +225,12 @@ public class Utility {
     	}
     }
     
+    /**
+     * Takes input parameter date in String format and returns date in Date format 
+     * @param date as String format
+     * @return date
+     */
+    
     public static Date printDate(String date) {
     	SimpleDateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
     	try {
@@ -173,10 +241,22 @@ public class Utility {
     	}
     }
     
+    /**
+     * Takes date as input and return formatted date
+     * @param date as String input parameter
+     * @return date
+     */
+    
     public static String getFormatedDate(Date date) {
     	SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy");
     	return sdf.format(date);
     }
+    
+    /**
+     * Gives the factorial of a number
+     * @param number as input integer parameter
+     * @return integer value
+     */
     
     public static int factorial(int number) {
     	int factorial = 1;
@@ -190,6 +270,12 @@ public class Utility {
     		return factorial;
     	}
     }
+    
+    /**
+     * To reverse the String value
+     * @param stringVariable as input parameter of String type
+     * @return String reversed input value
+     */
     
     public static String reverseString(String stringVariable) {
     	String reverse = "";

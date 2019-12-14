@@ -1,33 +1,19 @@
 package com.bridgelabz.util;
 
-import java.util.List;
+/**
+ * This method implements sorting methods like insertion sort, bubble sort
+ * @author Sunidhi Haldar
+ * @created 2019-11-25
+ * @version 13.0.1
+ */
 
 public class Sorting {
-	public static String[] insertionSort(String[] array) {
-		for(int i = 0; i < array.length; i++) {
-			for(int  j = i + 1; j < array.length; j++) {
-				if(array[i].compareTo(array[j]) > 0) {
-					String temp = array[i];
-					array[i] = array[j];
-					array[j] = temp;
-				}
-			}
-		}
-		return array;
-	}
 	
-	public static int[] insertionSort(int[] array) {
-		for(int i = 0; i < array.length; i++) {
-			int valueToSort = array[i];
-			int  j = i;
-			while(j > 0 && array[j -1] > valueToSort) {
-				array[j] = array[j - 1];
-				j--;
-			}
-			array[j] = valueToSort;
-		}
-		return array;
-	}
+	/**
+	 * This method implements bubble sort for an integer array
+	 * @param array as input integer array parameter
+	 * @return sorted integer array
+	 */
 	
 	public static int[] bubbleSort(int[] array) {
 		int n  = array.length;
@@ -43,27 +29,42 @@ public class Sorting {
 		return array;
 	}
 	
-	public static <G extends Comparable<G>> void swap(List<G> list, int firstPosition, int secondPosition) {
-		G temp = list.get(firstPosition);
-		list.set(firstPosition, list.get(secondPosition));
-		list.set(secondPosition, temp);
-	}
+	/**
+	 * This method implements insertion sort for a String array
+	 * @param array as input String array parameter
+	 * @return sorted String array
+	 */
 	
-	public static <G extends Comparable<G>> List<G> selectionSort(List<G> list) {
-		for(int i = 0; i < list.size(); i++) {
-			int minPosition = -1;
-			G minValue = list.get(i);
-			for(int j = i + 1; j < list.size(); j++) {
-				G secondPosition = list.get(j);
-				if(minValue.compareTo(secondPosition) > 0) {
-					minPosition = j;
-					minValue = list.get(j);
+	public static String[] insertionSort(String[] array) {
+		for(int i = 0; i < array.length; i++) {
+			for(int  j = i + 1; j < array.length; j++) {
+				if(array[i].compareTo(array[j]) > 0) {
+					String temp = array[i];
+					array[i] = array[j];
+					array[j] = temp;
 				}
 			}
-			if(minPosition >= 0) {
-				swap(list, i, minPosition);
-			}
 		}
-		return list;
+		return array;
 	}
+	
+	/**
+	 * This method implements insertion sort for an integer array
+	 * @param array as input integer array parameter
+	 * @return sorted integer array
+	 */
+	
+	public static int[] insertionSort(int[] array) {
+		for(int i = 0; i < array.length; i++) {
+			int valueToSort = array[i];
+			int  j = i;
+			while(j > 0 && array[j -1] > valueToSort) {
+				array[j] = array[j - 1];
+				j--;
+			}
+			array[j] = valueToSort;
+		}
+		return array;
+	}	
+	
 }
