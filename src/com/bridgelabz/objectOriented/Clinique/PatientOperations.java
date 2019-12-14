@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import com.bridgelabz.util.Utility;
 
-public class PatientOperations {
+public class PatientOperations implements PatientOperationsInterface {
 
 	ArrayList<Patient> patientList;
 
@@ -12,6 +12,8 @@ public class PatientOperations {
 		this.patientList = new ArrayList<Patient>();
 	}
 	
+	
+	@Override
 	public void registerPatient() {
 		System.out.println("Enter ID");
 		int id = Utility.intInput();
@@ -60,6 +62,7 @@ public class PatientOperations {
 		return this.patientList.indexOf(patient);
 	}
 	
+	@Override
 	public boolean addNewPatient(Patient patient) {
 		if(findPatient(patient.getPatientId()) >= 0) {
 			System.out.println("Patient already exists");
@@ -71,28 +74,7 @@ public class PatientOperations {
 		}
 	}
 	
-	public boolean updatePatient(Patient oldPatient, Patient newPatient) {
-		int findPosition = findPatient(oldPatient);
-		if(findPosition < 0) 
-			System.out.println(oldPatient.toString() + " does not exist");
-		this.patientList.set(findPosition, newPatient);
-		System.out.println(oldPatient.getPatientName() + " updated");
-		return true;
-	}
-
-	public String searchPatient(Patient patient) {
-		if(findPatient(patient) >= 0)
-			return patient.toString();
-		return null;
-	}
-	
-	public Patient searchPatient(String patientName) {
-		int position = findPatient(patientName);
-		if(position >= 0)
-			return this.patientList.get(position);
-		return null;
-	}
-	
+	@Override
 	public void printingPatientDetails() {
 		System.out.println("Patient list:");
 		for(int i = 0; i < patientList.size(); i++) {
@@ -101,6 +83,60 @@ public class PatientOperations {
 					"\nPatient Mobibe Number: " + patientList.get(i).getPatientMobileNumber() + 
 					"\nPatient Age:" + patientList.get(i).getPatientAge());
 		}
+	}
+
+	@Override
+	public boolean updatePatientDetails(Patient oldPatient, Patient newPatient) {
+		int findPosition = findPatient(oldPatient);
+		if(findPosition < 0) 
+			System.out.println(oldPatient.toString() + " does not exist");
+		this.patientList.set(findPosition, newPatient);
+		System.out.println(oldPatient.getPatientName() + " updated");
+		return true;
+		
+	}
+
+	@Override
+	public String searchPatient(Patient patient) {
+		if(findPatient(patient) >= 0)
+			return patient.toString();
+		return null;
+	}
+
+	@Override
+	public Patient searchPatient(String patientName) {
+		int position = findPatient(patientName);
+		if(position >= 0)
+			return this.patientList.get(position);
+		return null;
+	}
+
+	@Override
+	public Patient searchPatient(int id) {
+		int position = findPatient(id);
+		if(position >= 0)
+			return this.patientList.get(position);
+		return null;
+	}
+
+	@Override
+	public Patient searchPatient(long mobileNumber) {
+		int position = findPatient(mobileNumber);
+		if(position >= 0)
+			return this.patientList.get(position);
+		return null;
+	}
+
+	@Override
+	public boolean deletePatientDetails(Patient patient) {
+		int findPosition = findPatient(patient);
+		if(findPosition < 0) {
+			System.out.println(patient.toString() + " was not found");
+			return false;
+		}
+		this.patientList.remove(findPosition);
+		System.out.println(patient.getPatientName() + " is deleted");
+		return true;
 	}
 	
 }
