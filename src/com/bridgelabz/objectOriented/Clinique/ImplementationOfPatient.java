@@ -1,5 +1,7 @@
 package com.bridgelabz.objectOriented.Clinique;
 
+import com.bridgelabz.objectOriented.Clinique.Model.Patient;
+import com.bridgelabz.objectOriented.Clinique.Service.PatientOperationsInterface;
 import com.bridgelabz.util.Utility;
 
 public class ImplementationOfPatient {
@@ -31,7 +33,6 @@ public class ImplementationOfPatient {
 	    	System.out.println("Patient details updated");
 	    else
 	    	System.out.println("Patient details updating error");
-
 	}
 	
 	public static void deletePatient() {

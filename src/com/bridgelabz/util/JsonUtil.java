@@ -67,4 +67,40 @@ public class JsonUtil {
 			}
 		return result;
 	}
+	
+	/**
+	 * this method takes path and jsonArray as input parameters
+	 * @param path as String input parameter
+	 * @param jsonArray as input array parameter
+	 */
+	
+//	public static void writeDataToJSONArray(String path, JSONArray jsonArray) {
+//		try(FileWriter fileWriter = new FileWriter(path)) {
+//			filewriter.write(jsonarray.toJSONString());
+//		}
+//		catch(IOException e) {
+//			System.out.println(e.getMesage());
+//		}
+//	}
+	
+	/**
+	 * This method takes path as input parameter and read the data present in the file
+	 * and converts to JSON array
+	 * @param path as input parameter
+	 * @return jsonArray
+	 */
+	
+//	public static JSONArray readJsonArray(String path) {
+//		JSONArray jsonArray;
+//		try(FileReader fileReader = new FileReader(path)) {
+//			JSONParser jsonParser = new JsonParser();
+//			jsonArray = (JSONArray) jsonParser.parse(fileReader);
+//			return jsonArray;
+//		}
+//		catch(FileNotFoundException e) {
+//		}
+//		catch(IOException | ParseException e) {
+//		}
+//		return null;
+//	}
 }

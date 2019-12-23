@@ -1,7 +1,8 @@
 package com.bridgelabz.objectOriented.Clinique;
 
 import java.util.ArrayList;
-
+import com.bridgelabz.objectOriented.Clinique.Model.Patient;
+import com.bridgelabz.objectOriented.Clinique.Service.PatientOperationsInterface;
 import com.bridgelabz.util.Utility;
 
 public class PatientOperations implements PatientOperationsInterface {
