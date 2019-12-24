@@ -8,7 +8,7 @@ package com.bridgelabz.objectOriented.Clinique.Service;
  * @version 13.0.1
  */
 
-public interface CliniqueSer {
+public interface ICliniqueSer {
 
 	//UnImplemented functionality of adding a doctor
 	void addDoctor();

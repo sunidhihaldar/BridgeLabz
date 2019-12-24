@@ -8,12 +8,8 @@ public class Patient {
 	private int patientAge;
 	//private String disease;
 	
-	public Patient(int patientId, String patientName, long patientMobileNumber, int patientAge) {
-		this.patientId = patientId;
-		this.patientName = patientName;
-		this.patientMobileNumber = patientMobileNumber;
-		this.patientAge = patientAge;
-		//this.disease = disease;
+	public Patient() {
+		super();
 	}
 
 	public int getPatientId() {
@@ -52,13 +48,4 @@ public class Patient {
 //		return disease;
 //	}
 
-	public static Patient newPatient(int patientId, String patientName, long patientMobileNumber, int patientAge) {
-		return new Patient(patientId, patientName, patientMobileNumber, patientAge);
-	}
-	
-	public String toString() {
-		return "Patient ID:" + this.patientId + "\nPatient Name:" + this.patientName 
-				+ "\nPatient Mobile Number:" + this.patientMobileNumber 
-				+ "\nPatient Age:" + this.patientAge;
-	}
 }

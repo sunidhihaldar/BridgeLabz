@@ -4,11 +4,11 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Iterator;
 import java.util.Random;
-//import org.json.simple.JSONArray;
-//import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import com.bridgelabz.objectOriented.Clinique.Model.Doctor;
 import com.bridgelabz.objectOriented.Clinique.Model.Patient;
-import com.bridgelabz.objectOriented.Clinique.Service.CliniqueSer;
+import com.bridgelabz.objectOriented.Clinique.Service.ICliniqueSer;
 import com.bridgelabz.util.Utility;
 import com.bridgelabz.util.JsonUtil;
 
@@ -24,7 +24,7 @@ import com.bridgelabz.util.JsonUtil;
  * @version 13.0.1
  */
 
-public class CliniqueOperation {
+public class CliniqueOperation implements ICliniqueSer {
 	
 		private static final String PATH_DOCTOR = "doctor.json";
 		private static final String PATH_PATIENT = "patient.json";
@@ -38,12 +38,11 @@ public class CliniqueOperation {
 		 * doctor to the hospital with id display confirmation message to the user
 		 */
 		@SuppressWarnings("unchecked")
-		@Override
 		public void addDoctor() {
 			JSONObject doctorJsonObject = new JSONObject();
 			// reading old data from file.
-			if (UtilJson.readJSONArray(PATH_DOCTOR) != null) {
-				globalJsonArray = UtilJson.readJSONArray(PATH_DOCTOR);
+			if (JsonUtil.readJsonArray(PATH_DOCTOR) != null) {
+				globalJsonArray = JsonUtil.readJsonArray(PATH_DOCTOR);
 			}
 
 			Doctor newDoctor = new Doctor();
@@ -78,7 +77,7 @@ public class CliniqueOperation {
 			// adding object to json array
 			if (globalJsonArray.add(doctorJsonObject)) {
 				// writing array data to json file
-				UtilJson.writeDataToJSONArray(PATH_DOCTOR, globalJsonArray);
+				JsonUtil.writeDataToJSONArray(PATH_DOCTOR, globalJsonArray);
 				System.out.println("Dr." + newDoctor.getDoctorName() + " Doctor  Id : " + newDoctor.getDoctorId()
 						+ " registered\n");
 			} else {
@@ -137,8 +136,8 @@ public class CliniqueOperation {
 			// reading old data from file.
 			JSONArray jsonArray = new JSONArray();
 			JSONObject patientJsonObject = new JSONObject();
-			if (UtilJson.readJSONArray(PATH_PATIENT) != null) {
-				jsonArray = UtilJson.readJSONArray(PATH_PATIENT);
+			if (JsonUtil.readJsonArray(PATH_PATIENT) != null) {
+				jsonArray = JsonUtil.readJsonArray(PATH_PATIENT);
 			}
 
 			Patient newPatient = new Patient();
@@ -171,7 +170,7 @@ public class CliniqueOperation {
 			// adding the object to jsonArray
 			if (jsonArray.add(patientJsonObject)) {
 				// writing array data to json file
-				UtilJson.writeDataToJSONArray(PATH_PATIENT, jsonArray);
+				JsonUtil.writeDataToJSONArray(PATH_PATIENT, jsonArray);
 				System.out.println("patient " + newPatient.getPatientName() + " registered\n");
 			} else {
 				System.out.println("Error adding patient.");
@@ -191,8 +190,8 @@ public class CliniqueOperation {
 		private void bookAppointment(JSONObject doctorObject) {
 			// read data from appointment path
 			JSONArray jsonArray = null;
-			if (UtilJson.readJSONArray(PATH_APPOINTMENT) != null) {
-				jsonArray = UtilJson.readJSONArray(PATH_APPOINTMENT);
+			if (JsonUtil.readJsonArray(PATH_APPOINTMENT) != null) {
+				jsonArray = JsonUtil.readJsonArray(PATH_APPOINTMENT);
 			} else {
 				jsonArray = new JSONArray();
 			}
@@ -220,7 +219,7 @@ public class CliniqueOperation {
 					jsonArray.add(jsonObject);
 					System.out.println("Appointment of patient id : " + patientId + " sheduled for " + tomorrowDate
 							+ " with Dr." + doctorObject.get("name"));
-					UtilJson.writeDataToJSONArray(PATH_APPOINTMENT, jsonArray);
+					JsonUtil.writeDataToJSONArray(PATH_APPOINTMENT, jsonArray);
 
 				}
 				// patient count less than 5 of single doc
@@ -236,7 +235,7 @@ public class CliniqueOperation {
 				jsonObject.put("appointmentDate", todayDate);
 				jsonArray.add(jsonObject);
 				System.out.println("Appointment of patient id : " + patientId + " fixed today.");
-				UtilJson.writeDataToJSONArray(PATH_APPOINTMENT, jsonArray);
+				JsonUtil.writeDataToJSONArray(PATH_APPOINTMENT, jsonArray);
 			}
 		}
 
@@ -246,14 +245,13 @@ public class CliniqueOperation {
 		 * content to the user.
 		 */
 		@SuppressWarnings("rawtypes")
-		@Override
 		public void readPatientDetails(String key, String value) {
 			// reading old data from file.
-			if (UtilJson.readJSONArray(PATH_PATIENT) == null) {
+			if (JsonUtil.readJsonArray(PATH_PATIENT) == null) {
 				System.out.println("Empty list.. plz add patient.");
 				return;
 			}
-			globalJsonArray = UtilJson.readJSONArray(PATH_PATIENT);
+			globalJsonArray = JsonUtil.readJsonArray(PATH_PATIENT);
 			Iterator iterator = globalJsonArray.iterator();
 			// displaying all records of searched patient.
 			JSONObject patientObject;
@@ -278,7 +276,7 @@ public class CliniqueOperation {
 		 */
 		@SuppressWarnings("unchecked")
 		private void updateDoctor(JSONObject currentDoctorObject) {
-			globalJsonArray = UtilJson.readJSONArray(PATH_DOCTOR);
+			globalJsonArray = JsonUtil.readJsonArray(PATH_DOCTOR);
 
 			JSONArray updatedArray = new JSONArray();
 			@SuppressWarnings("rawtypes")
@@ -292,7 +290,7 @@ public class CliniqueOperation {
 					updatedArray.add(nextDoctorObject);
 				}
 			}
-			UtilJson.writeDataToJSONArray(PATH_DOCTOR, updatedArray);
+			JsonUtil.writeDataToJSONArray(PATH_DOCTOR, updatedArray);
 		}
 
 		/**
@@ -302,15 +300,14 @@ public class CliniqueOperation {
 		 * 
 		 */
 		@SuppressWarnings("rawtypes")
-		@Override
 		public void searchDoctorBookAppointment(String key, String value) {
 			// reading old data from file.
-			JSONArray readOldFile = UtilJson.readJSONArray(PATH_DOCTOR);
+			JSONArray readOldFile = JsonUtil.readJsonArray(PATH_DOCTOR);
 			if (readOldFile == null) {
 				System.out.println("Empty list.. plz add doctor.");
 				return;
 			}
-			globalJsonArray = UtilJson.readJSONArray(PATH_DOCTOR);
+			globalJsonArray = JsonUtil.readJsonArray(PATH_DOCTOR);
 			Iterator iterator = globalJsonArray.iterator();
 			JSONObject currentDoctorObject = null;
 			JSONObject previousDoctorObject = null;
@@ -350,9 +347,8 @@ public class CliniqueOperation {
 		 * associated with the hospital.
 		 */
 		@SuppressWarnings("rawtypes")
-		@Override
 		public void printDoctorList() {
-			JSONArray readOldFileArray = UtilJson.readJSONArray(PATH_DOCTOR);
+			JSONArray readOldFileArray = JsonUtil.readJsonArray(PATH_DOCTOR);
 			if (readOldFileArray == null) {
 				System.out.println("Empty list.. plz add doctor.");
 				return;
@@ -379,9 +375,8 @@ public class CliniqueOperation {
 		 * patients associated with the hospital
 		 */
 		@SuppressWarnings("rawtypes")
-		@Override
 		public void printPatientList() {
-			JSONArray readOldFileArray = UtilJson.readJSONArray(PATH_PATIENT);
+			JSONArray readOldFileArray = JsonUtil.readJsonArray(PATH_PATIENT);
 			if (readOldFileArray == null) {
 				System.out.println("Empty list.. plz add doctor.");
 				return;

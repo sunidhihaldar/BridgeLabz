@@ -48,10 +48,10 @@ public class InventoryMain {
     //}
     
 //    public static String writeDataToJson() {
-//    	String inventoryManagement = JsonUtil.convertJavaToJson(InventoryManagementSystem.inventory.inventoryList);
+//    	String inventoryManagement = JsonUtil.convertJavaToJson(InventoryManagementSystem.);
 //    	return inventoryManagement;
 //    }
-    
+//    
 	public static void main(String[] args) {
 		System.out.println("Enter name of manager");
 		String managerName = Utility.SCANNER.next();

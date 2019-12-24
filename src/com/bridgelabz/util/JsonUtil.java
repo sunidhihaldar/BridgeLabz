@@ -1,10 +1,16 @@
 package com.bridgelabz.util;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.json.simple.JSONArray;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 /**
  * This class contains JSON functionalities
@@ -74,14 +80,14 @@ public class JsonUtil {
 	 * @param jsonArray as input array parameter
 	 */
 	
-//	public static void writeDataToJSONArray(String path, JSONArray jsonArray) {
-//		try(FileWriter fileWriter = new FileWriter(path)) {
-//			filewriter.write(jsonarray.toJSONString());
-//		}
-//		catch(IOException e) {
-//			System.out.println(e.getMesage());
-//		}
-//	}
+	public static void writeDataToJSONArray(String path, JSONArray jsonArray) {
+		try(FileWriter fileWriter = new FileWriter(path)) {
+			fileWriter.write(jsonArray.toJSONString());
+		}
+		catch(IOException e) {
+			System.out.println(e.getMessage());
+		}
+	}
 	
 	/**
 	 * This method takes path as input parameter and read the data present in the file
@@ -90,17 +96,17 @@ public class JsonUtil {
 	 * @return jsonArray
 	 */
 	
-//	public static JSONArray readJsonArray(String path) {
-//		JSONArray jsonArray;
-//		try(FileReader fileReader = new FileReader(path)) {
-//			JSONParser jsonParser = new JsonParser();
-//			jsonArray = (JSONArray) jsonParser.parse(fileReader);
-//			return jsonArray;
-//		}
-//		catch(FileNotFoundException e) {
-//		}
-//		catch(IOException | ParseException e) {
-//		}
-//		return null;
-//	}
+	public static JSONArray readJsonArray(String path) {
+		JSONArray jsonArray;
+		try(FileReader fileReader = new FileReader(path)) {
+			JSONParser jsonParser = new JSONParser();
+			jsonArray = (JSONArray) jsonParser.parse(fileReader);
+			return jsonArray;
+		}
+		catch(FileNotFoundException e) {
+		}
+		catch(IOException | ParseException e) {
+		}
+		return null;
+	}
 }

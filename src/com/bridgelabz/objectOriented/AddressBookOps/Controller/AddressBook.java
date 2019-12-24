@@ -18,7 +18,7 @@ import com.bridgelabz.util.Utility;
 public class AddressBook {
 
 	static AddressBookInterface myAddressBook = new AddressBookOperations("admin");
-	static String filename = "C:\\Users\\SONY\\eclipse-workspace\\Fellowships\\src\\com\\bridgelabz\\objectOriented\\AddressBook.json";
+	static String filename = "/home/bridgelabz/eclipse-workspace/BridgeLabz/src/com/bridgelabz/objectOriented/AddressBook.json";
 	/**
 	 * Allows user to enter first name, last name, mobile number, address and email id and
 	 * create a new contact by using the Contact Class type static method

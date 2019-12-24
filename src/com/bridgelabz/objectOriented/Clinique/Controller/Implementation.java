@@ -1,6 +1,6 @@
 package com.bridgelabz.objectOriented.Clinique.Controller;
 
-import com.bridgelabz.objectOriented.Clinique.Service.CliniqueSer;
+import com.bridgelabz.objectOriented.Clinique.Service.ICliniqueSer;
 import com.bridgelabz.objectOriented.Clinique.ServiceImplementation.CliniqueOperation;
 import com.bridgelabz.util.Utility;
 
@@ -14,14 +14,14 @@ import com.bridgelabz.util.Utility;
 
 public class Implementation {
 	
-	private static CliniqueSer service = new CliniqueOperation();
+	private static ICliniqueSer service = new CliniqueOperation();
 
 	public static void main(String[] args) {
         System.out.println("Welcome to Asia hospital\n-----------------------------");
 		printInstructions();
 		boolean isQuit = false;
 		while (!isQuit) {
-		System.out.println("\nEnter action : (press : 4 -> show available actions)");
+		System.out.println("\nEnter action:");
 		int action = Utility.intInput();
 		switch(action) {
         case 1:
@@ -75,7 +75,7 @@ public class Implementation {
 	* procedure.
 	*/
 	public static void searchDoctorAndBookAppointment() {
-		System.out.println("press to search by : 1 -> name, 2 -> id");
+		System.out.println("press to search by : 1 -> name, 2 -> id 3 -> specialization");
 		System.out.println("please Enter your choice");
 		int choice = Utility.intInput();
 		switch (choice) {
@@ -93,22 +93,13 @@ public class Implementation {
 			Utility.SCANNER.nextLine();
 			service.searchDoctorBookAppointment("id", docId);
 			break;
-
-//			case 3:
-//				System.out.println("Please Enter Doctor specialization :");
-//				String docSpecialization = Util.scanner.next();
-//				Util.scanner.nextLine();
-//				service.searchDoctorBookAppointment("specialization", docSpecialization);
-//				// search by specialization
-//				break;
-	//
-//			case 4:
-//				System.out.println("Please Enter Doctor availability time am/PM/both :");
-//				String docAvailability = Util.scanner.next();
-//				Util.scanner.nextLine();
-//				service.searchDoctorBookAppointment("availability", docAvailability);
-//				// search by availability
-//				break;
+		case 3:
+			// search by specialization
+			System.out.println("Please Enter Doctor specialization :");
+			String docSpecialization = Utility.SCANNER.next();
+			Utility.SCANNER.nextLine();
+			service.searchDoctorBookAppointment("specialization", docSpecialization);
+			break;
 		default:
 			System.out.println("Please follow instructions...");
 			break;
