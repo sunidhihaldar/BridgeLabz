@@ -17,9 +17,10 @@ public class InventoryManagementSystem {
 	
 	String inventoryName;
 	static InventoryManagement inventory = new InventoryOperations("Admin");
+	static final String INVENTORY_PATH = "inventory.json";
 	
 	/**
-	 * Constctor to initialize and set the inventory name 
+	 * Constructor to initialize and set the inventory name 
 	 * @param inventoryName as input parameter
 	 */
 	
@@ -71,13 +72,14 @@ public class InventoryManagementSystem {
 			System.out.println("Item " + newItem.getName() + " added");
 		else
 			System.out.println("Item " + newItem.getName() + " already present in inventory");
+		Utility.writeDataToFile(inventory.writeDataToJson(), INVENTORY_PATH);
 	}
 
 	/**
 	 * This method takes the existing name of the product and searches for the product name
 	 * by using object reference, if the product exists it asks the user to enter updated values
 	 * of weight and price of the existing product. It creates a new Class type object 
-	 * and uses updateInventory() method fom refrence type and updates the object
+	 * and uses updateInventory() method from reference type and updates the object
 	 */
 	
 	public static void updateExistingProductInInventory() {
@@ -97,6 +99,7 @@ public class InventoryManagementSystem {
 			System.out.println("Item updated in inventory");
 		else
 			System.out.println("Item not updated in inventory");
+		Utility.writeDataToFile(inventory.writeDataToJson(), INVENTORY_PATH);
 	}
 	
 	/**
@@ -117,6 +120,7 @@ public class InventoryManagementSystem {
 			System.out.println(existingProductInInventory.getName() + " deleted");
 		else
 			System.out.println("Not deleted");
+		Utility.writeDataToFile(inventory.writeDataToJson(), INVENTORY_PATH);
 	}
 	
 	/**
@@ -144,7 +148,7 @@ public class InventoryManagementSystem {
 	
 	/**
 	 * Method to perform actions associated with the cases
-	 * @param isQuit of Boolean type as iput parameter
+	 * @param isQuit of Boolean type as input parameter
 	 * @return Boolean value
 	 */
 	public static boolean inventoryChoies(boolean isQuit) {

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.bridgelabz.objectOriented.InventorySystem.Model.Inventory;
 import com.bridgelabz.objectOriented.InventorySystem.Service.InventoryManagement;
 import com.bridgelabz.objectOriented.InventorySystem.Service.InventoryOpsMethods;
+import com.bridgelabz.util.JsonUtil;
 
 /**
  * This program provies funtionalities like adding new item to the inventory, updating an item
@@ -196,6 +197,12 @@ public class InventoryOperations implements InventoryOpsMethods, InventoryManage
 			System.out.println("Inventory is empty");
 		for(int i = 0; i < inventoryList.size(); i++)
 			System.out.println((i + 1) + ". " + inventoryList.get(i).toString());
+	}
+	
+	@Override
+	public String writeDataToJson() {
+		String inventoryManagement = JsonUtil.convertJavaToJson(inventoryList);
+		return inventoryManagement;
 	}
 	
 }

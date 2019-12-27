@@ -14,4 +14,6 @@ public interface InventoryManagement {
 
 	public void printInventory();
 	
+	String writeDataToJson();
+	
 }
