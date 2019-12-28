@@ -1,7 +1,7 @@
 package com.bridgelabz.objectOriented.StockSystem.ServiceImplementation;
 
 import com.bridgelabz.objectOriented.StockSystem.Model.Stock;
-import com.bridgelabz.objectOriented.StockSystem.Service.CompanyServices;
+import com.bridgelabz.objectOriented.StockSystem.Service.ICompanyServices;
 import com.bridgelabz.util.Utility;
 
 /**
@@ -17,7 +17,7 @@ import com.bridgelabz.util.Utility;
 
 public class CompanyShare extends Transaction {
 	
-	private static CompanyServices companyOperation = new CompanyOperation();
+	private static ICompanyServices companyOperation = new CompanyOperation();
 
 	/**
 	* Allows the user to give input of Company name, Company Symbol, Price and

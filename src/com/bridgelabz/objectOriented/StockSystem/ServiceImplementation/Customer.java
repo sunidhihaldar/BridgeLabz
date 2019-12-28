@@ -1,8 +1,8 @@
 package com.bridgelabz.objectOriented.StockSystem.ServiceImplementation;
 
 import com.bridgelabz.objectOriented.StockSystem.Model.Stock;
-import com.bridgelabz.objectOriented.StockSystem.Service.CompanyServices;
-import com.bridgelabz.objectOriented.StockSystem.Service.CustomerServices;
+import com.bridgelabz.objectOriented.StockSystem.Service.ICompanyServices;
+import com.bridgelabz.objectOriented.StockSystem.Service.ICustomerServices;
 import com.bridgelabz.util.*;
 import java.util.ArrayList;
 
@@ -16,7 +16,7 @@ import java.util.ArrayList;
  * @version 13.0.1
  */
 
-public class Customer extends Transaction implements CustomerServices {
+public class Customer extends Transaction implements ICustomerServices {
 
 	public static ArrayList<Stock> customerShareList;
 
@@ -26,7 +26,7 @@ public class Customer extends Transaction implements CustomerServices {
 	}
 
 	//Object of ComapanyOperation class to access functions of that class
-	private CompanyServices companyOperation = new CompanyOperation();
+	private ICompanyServices companyOperation = new CompanyOperation();
 
 	/**
 	* This function ask the Customer user to enter the share which he want to purchase also

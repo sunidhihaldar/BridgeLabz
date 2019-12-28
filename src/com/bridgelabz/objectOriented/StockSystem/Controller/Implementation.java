@@ -16,7 +16,7 @@ import com.bridgelabz.util.Utility;
 public class Implementation {
 
 	public static void main(String[] args) {
-		Operation implimentation = new Operation();
+		Operation implementation = new Operation();
 
 		boolean isQuitApplication = false;
 		while (!isQuitApplication) {
@@ -26,10 +26,10 @@ public class Implementation {
 			int action = Utility.intInput();
 			switch (action) {
 			case 1:
-				implimentation.companyOperation(isQuitApplication);
+				implementation.companyOperation(isQuitApplication);
 				break;
 			case 2:
-				implimentation.customerOperation(isQuitApplication);
+				implementation.customerOperation(isQuitApplication);
 				break;
             case 3:
 				isQuitApplication = true;

@@ -3,8 +3,8 @@ package com.bridgelabz.objectOriented.InventorySystem.ServiceImplementation;
 import java.util.ArrayList;
 
 import com.bridgelabz.objectOriented.InventorySystem.Model.Inventory;
-import com.bridgelabz.objectOriented.InventorySystem.Service.InventoryManagement;
-import com.bridgelabz.objectOriented.InventorySystem.Service.InventoryOpsMethods;
+import com.bridgelabz.objectOriented.InventorySystem.Service.IInventoryManagement;
+import com.bridgelabz.objectOriented.InventorySystem.Service.IInventoryOpsMethods;
 import com.bridgelabz.util.JsonUtil;
 
 /**
@@ -17,7 +17,7 @@ import com.bridgelabz.util.JsonUtil;
  * @version 13.0.1
  */
 
-public class InventoryOperations implements InventoryOpsMethods, InventoryManagement {
+public class InventoryOperations implements IInventoryOpsMethods, IInventoryManagement {
 
 	String inventoryName;
 	private static ArrayList<Inventory> inventoryList;

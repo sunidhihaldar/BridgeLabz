@@ -8,7 +8,7 @@ package com.bridgelabz.objectOriented.StockSystem.Service;
  * @version 13.0.1
  */
 
-public interface CustomerServices {
+public interface ICustomerServices {
 
 	//Unimplemented methods of buy share
 	void buyShare();

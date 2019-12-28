@@ -2,7 +2,7 @@ package com.bridgelabz.designPattern.structuralDesignPattern.Proxy;
 
 import java.io.IOException;
 
-public class CommandExecutorImpl implements CommandExecutor {
+public class CommandExecutorImpl implements ICommandExecutor {
 
 	@Override
 	public void runCommand(String cmd) throws IOException {

@@ -1,6 +1,6 @@
 package com.bridgelabz.designPattern.behaviorialDesignPattern.Visitor;
 
-public class Book implements ItemElement {
+public class Book implements IItemElement {
 
 	private int price;
 	private String isbnNumber;
@@ -19,7 +19,7 @@ public class Book implements ItemElement {
 	}
 
 	@Override
-	public int accept(ShoppingCartVisitor visitor) {
+	public int accept(IShoppingCartVisitor visitor) {
 		return visitor.visit(this);
 	}
 

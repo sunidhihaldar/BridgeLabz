@@ -21,7 +21,7 @@ public class Implementation {
 		printInstructions();
 		boolean isQuit = false;
 		while (!isQuit) {
-		System.out.println("\nEnter action:");
+		System.out.println("\nEnter action: [enter 4 to print instructions]");
 		int action = Utility.intInput();
 		switch(action) {
         case 1:
@@ -46,12 +46,12 @@ public class Implementation {
 			isQuit = true;
 			break;
 		case 6:
+			// print doctor list
 			service.printDoctorList();
-					// print all doctor list
 			break;
 		case 7:
+			// print patient list
 			service.printPatientList();
-					// print all patient list
 			break;
 		default:
 			System.out.println("please read instrutions!");
@@ -88,7 +88,7 @@ public class Implementation {
 			break;
 		case 2:
 			// search by id
-			System.out.println("Please Enter Doctor id :");
+			System.out.println("Please enter Doctor id :");
 			String docId = Utility.SCANNER.next();
 			Utility.SCANNER.nextLine();
 			service.searchDoctorBookAppointment("id", docId);

@@ -20,7 +20,7 @@ public class CardsSorting extends CDeckOfCards {
     	}
     }
     
-    // This method shuffles the cards by picking up each strating from !st index replcing old card's data with new data
+    // This method shuffles the cards by picking up each starting from 1st index replacing old card's data with new data
     public void shuffleCard() {
     	for(int i = 0; i < deck.length; i++) {
 	    	int randomCard = i + (int)(Math.random() * (numberOfCards - i));

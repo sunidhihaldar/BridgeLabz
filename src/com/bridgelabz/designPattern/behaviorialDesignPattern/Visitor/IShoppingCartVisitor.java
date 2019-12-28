@@ -1,6 +1,6 @@
 package com.bridgelabz.designPattern.behaviorialDesignPattern.Visitor;
 
-public interface ShoppingCartVisitor {
+public interface IShoppingCartVisitor {
 
 	int visit(Book book);
 	int visit(Fruit fruit);

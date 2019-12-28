@@ -3,7 +3,7 @@ package com.bridgelabz.designPattern.behaviorialDesignPattern.Mediator;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ChatMediatorImpl implements ChatMediator {
+public class ChatMediatorImpl implements IChatMediator {
 
 	private List<User> users;
 	

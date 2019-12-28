@@ -1,10 +1,10 @@
 package com.bridgelabz.designPattern.behaviorialDesignPattern.Mediator;
 
 public abstract class User {
-	protected ChatMediator mediator;
+	protected IChatMediator mediator;
 	protected String name;
 	
-	public User(ChatMediator med, String name){
+	public User(IChatMediator med, String name){
 		this.mediator=med;
 		this.name=name;
 	}

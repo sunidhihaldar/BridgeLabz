@@ -2,7 +2,7 @@
 package com.bridgelabz.designPattern.structuralDesignPattern.Adapter;
 
 //Using inheritance for adapter pattern
-public class SocketClassAdapterImpl extends Socket implements SocketAdapter{
+public class SocketClassAdapterImpl extends Socket implements ISocketAdapter{
 
 	@Override
 	public Volt get120Volt() {

@@ -1,10 +1,10 @@
 
 package com.bridgelabz.designPattern.structuralDesignPattern.Proxy;
 
-public class CommandExecutorProxy implements CommandExecutor {
+public class CommandExecutorProxy implements ICommandExecutor {
 
 	private boolean isAdmin;
-	private CommandExecutor executor;
+	private ICommandExecutor executor;
 	
 	public CommandExecutorProxy(String user, String pwd){
 		if("Pankaj".equals(user) && "J@urnalD$v".equals(pwd)) isAdmin=true;

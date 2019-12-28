@@ -1,6 +1,6 @@
 package com.bridgelabz.designPattern.structuralDesignPattern.Adapter;
 
-public interface SocketAdapter {
+public interface ISocketAdapter {
 
 	public Volt get120Volt();
 		

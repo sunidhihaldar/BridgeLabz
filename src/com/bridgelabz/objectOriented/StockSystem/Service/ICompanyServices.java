@@ -12,7 +12,7 @@ import com.bridgelabz.objectOriented.StockSystem.Model.Stock;
  * @version 13.0.1
  */
 
-public interface CompanyServices {
+public interface ICompanyServices {
 
 	/**
 	* Getter method to get arrayList 

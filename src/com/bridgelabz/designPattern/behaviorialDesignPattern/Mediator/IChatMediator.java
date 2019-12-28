@@ -1,6 +1,6 @@
 package com.bridgelabz.designPattern.behaviorialDesignPattern.Mediator;
 
-public interface ChatMediator {
+public interface IChatMediator {
 
 	public void sendMessage(String msg, User user);
 

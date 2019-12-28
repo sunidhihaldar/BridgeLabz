@@ -34,7 +34,7 @@ public class CDeckOfCards {
 	}
 
 	/**
-	 * This methosd randomly generates suit and rank and recursively calls the function
+	 * This method randomly generates suit and rank and recursively calls the function
 	 * unless 0 is found in the 2D array, if not found then assign the card to next player
 	 * @param playerNumber as input parameter
 	 */

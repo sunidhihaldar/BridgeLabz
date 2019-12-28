@@ -2,7 +2,7 @@ package com.bridgelabz.objectOriented.AddressBookOps.Controller;
 
 import com.bridgelabz.objectOriented.AddressBookOps.ContactDoesNotExistException;
 import com.bridgelabz.objectOriented.AddressBookOps.Model.Contact;
-import com.bridgelabz.objectOriented.AddressBookOps.Service.AddressBookInterface;
+import com.bridgelabz.objectOriented.AddressBookOps.Service.IAddressBook;
 import com.bridgelabz.objectOriented.AddressBookOps.ServiceImplementation.AddressBookOperations;
 import com.bridgelabz.util.Utility;
 
@@ -17,7 +17,7 @@ import com.bridgelabz.util.Utility;
 
 public class AddressBook {
 
-	static AddressBookInterface myAddressBook = new AddressBookOperations("admin");
+	static IAddressBook myAddressBook = new AddressBookOperations("admin");
 	static String filename = "/home/bridgelabz/eclipse-workspace/BridgeLabz/src/com/bridgelabz/objectOriented/AddressBook.json";
 	/**
 	 * Allows user to enter first name, last name, mobile number, address and email id and

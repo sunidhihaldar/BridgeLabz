@@ -3,7 +3,7 @@ package com.bridgelabz.objectOriented.StockSystem.ServiceImplementation;
 import java.util.ArrayList;
 
 import com.bridgelabz.objectOriented.StockSystem.Model.Stock;
-import com.bridgelabz.objectOriented.StockSystem.Service.CompanyServices;
+import com.bridgelabz.objectOriented.StockSystem.Service.ICompanyServices;
 
 /**
  * This class has the functionality of add a new share, remove a share, find a
@@ -15,7 +15,7 @@ import com.bridgelabz.objectOriented.StockSystem.Service.CompanyServices;
  * @version 13.0.1
  */
 
-public class CompanyOperation extends Transaction implements CompanyServices {
+public class CompanyOperation extends Transaction implements ICompanyServices {
 	
 		public static ArrayList<Stock> companyShareList;
 
@@ -81,7 +81,7 @@ public class CompanyOperation extends Transaction implements CompanyServices {
 		public boolean removeShare(Stock share) {
 			int foundPosition = findShare(share.getSymbol());
 			if (foundPosition < 0) {
-				System.out.println(share.getSymbol() + " not found.");
+				System.out.println(share.getSymbol() + " not found");
 				return false;
 			}
 			companyShareList.remove(foundPosition);

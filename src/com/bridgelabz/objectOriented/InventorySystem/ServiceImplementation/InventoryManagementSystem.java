@@ -1,7 +1,7 @@
 package com.bridgelabz.objectOriented.InventorySystem.ServiceImplementation;
 
 import com.bridgelabz.objectOriented.InventorySystem.Model.Inventory;
-import com.bridgelabz.objectOriented.InventorySystem.Service.InventoryManagement;
+import com.bridgelabz.objectOriented.InventorySystem.Service.IInventoryManagement;
 //import com.bridgelabz.util.JsonUtil;
 import com.bridgelabz.util.Utility;
 
@@ -16,7 +16,7 @@ import com.bridgelabz.util.Utility;
 public class InventoryManagementSystem {
 	
 	String inventoryName;
-	static InventoryManagement inventory = new InventoryOperations("Admin");
+	static IInventoryManagement inventory = new InventoryOperations("Admin");
 	static final String INVENTORY_PATH = "inventory.json";
 	
 	/**
@@ -156,7 +156,7 @@ public class InventoryManagementSystem {
 		boolean switchFromInventory = false;
 		
 		while(!switchFromInventory || isQuit) {
-			System.out.println("Enter choice");
+			System.out.println("Enter choice: [enter 7 to print instructions]");
 			int choice = Utility.intInput();
 			
 			switch(choice) {

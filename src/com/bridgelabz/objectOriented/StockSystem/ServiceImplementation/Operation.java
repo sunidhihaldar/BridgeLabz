@@ -1,6 +1,6 @@
 package com.bridgelabz.objectOriented.StockSystem.ServiceImplementation;
 
-import com.bridgelabz.objectOriented.StockSystem.Service.CustomerServices;
+import com.bridgelabz.objectOriented.StockSystem.Service.ICustomerServices;
 import com.bridgelabz.util.Utility;
 import com.bridgelabz.util.JsonUtil;
 
@@ -19,7 +19,7 @@ public class Operation {
 
 	//Objects of CompanyShare and CustomerOperation class
 	private static CompanyShare companyShare = new CompanyShare();
-	private static CustomerServices customerTrading = new Customer();
+	private static ICustomerServices customerTrading = new Customer();
 	private static final String CUSTOMER_PATH = "customer.json";
 	private static final String COMPANY_PATH = "company.json";
 

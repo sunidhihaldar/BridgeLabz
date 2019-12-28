@@ -40,7 +40,7 @@ public class CliniqueOperation implements ICliniqueSer {
 		@SuppressWarnings("unchecked")
 		public void addDoctor() {
 			JSONObject doctorJsonObject = new JSONObject();
-			// reading old data from file.
+			// reading old data from file
 			if (JsonUtil.readJsonArray(PATH_DOCTOR) != null) {
 				globalJsonArray = JsonUtil.readJsonArray(PATH_DOCTOR);
 			}
@@ -51,8 +51,8 @@ public class CliniqueOperation implements ICliniqueSer {
 			// name
 			System.out.println("Enter Doctor name :");
 			String name = Utility.SCANNER.next();
-			newDoctor.setDoctorName(name);
 			Utility.SCANNER.nextLine();
+			newDoctor.setDoctorName(name);
 			// id
 			String id = doctorIdGnerator();
 			newDoctor.setDoctorId(id);
@@ -97,7 +97,7 @@ public class CliniqueOperation implements ICliniqueSer {
 				return "am";
 			else if (inputData == 2)
 				return "pm";
-			return "am";
+			return null;
 
 		}
 
@@ -133,7 +133,7 @@ public class CliniqueOperation implements ICliniqueSer {
 		 */
 		@SuppressWarnings("unchecked")
 		private void addPatient(int patientId, String doctorId) {
-			// reading old data from file.
+			// reading old data from file
 			JSONArray jsonArray = new JSONArray();
 			JSONObject patientJsonObject = new JSONObject();
 			if (JsonUtil.readJsonArray(PATH_PATIENT) != null) {
@@ -146,7 +146,7 @@ public class CliniqueOperation implements ICliniqueSer {
 			// name
 			System.out.println("Enter Patient name :");
 			String patientName = Utility.SCANNER.next();
-			newPatient.setName(patientName);
+			newPatient.setPatientName(patientName);
 			Utility.SCANNER.nextLine();
 			// id
 			patientId = patientIdGnerator();
@@ -175,7 +175,6 @@ public class CliniqueOperation implements ICliniqueSer {
 			} else {
 				System.out.println("Error adding patient.");
 			}
-
 		}
 
 		/**
@@ -217,7 +216,7 @@ public class CliniqueOperation implements ICliniqueSer {
 					jsonObject.put("patientId", patientId);
 					jsonObject.put("appointmentDate", tomorrowDate);
 					jsonArray.add(jsonObject);
-					System.out.println("Appointment of patient id : " + patientId + " sheduled for " + tomorrowDate
+					System.out.println("Appointment of patient id : " + patientId + " scheduled for " + tomorrowDate
 							+ " with Dr." + doctorObject.get("name"));
 					JsonUtil.writeDataToJSONArray(PATH_APPOINTMENT, jsonArray);
 
@@ -334,10 +333,11 @@ public class CliniqueOperation implements ICliniqueSer {
 			// doc found and proceed with appointment
 			String appointmentChoice = Utility.SCANNER.next().trim();
 			Utility.SCANNER.nextLine();
-			if (appointmentChoice.equalsIgnoreCase("y")) {
+			if(appointmentChoice.equalsIgnoreCase("y")) {
 				bookAppointment(previousDoctorObject);
-			} else {
-				System.out.println("Not a problem...");
+			}
+			else {
+				System.out.println("Thank you...");
 				return;
 			}
 		}
@@ -367,7 +367,6 @@ public class CliniqueOperation implements ICliniqueSer {
 				System.out.println("Patient\t: " + jsonDoctorObject.get("patientCount"));
 				System.out.println();
 			}
-
 		}
 
 		/**
@@ -384,7 +383,7 @@ public class CliniqueOperation implements ICliniqueSer {
 			Iterator iterator = readOldFileArray.iterator();
 			JSONObject jsonPatientObject;
 			int count = 1;
-			System.out.println("All patients resisted with hospital :\n------------------------------------");
+			System.out.println("All patients registered with hospital :\n------------------------------------");
 			while (iterator.hasNext()) {
 				jsonPatientObject = (JSONObject) iterator.next();
 				System.out.println("patient No : " + count++ + "\n---------------");
@@ -395,7 +394,6 @@ public class CliniqueOperation implements ICliniqueSer {
 				System.out.println("doctor\t: " + jsonPatientObject.get("doctorId"));
 				System.out.println();
 			}
-
 		}
 
 }

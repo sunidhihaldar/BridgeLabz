@@ -2,7 +2,7 @@ package com.bridgelabz.objectOriented.InventorySystem.Service;
 
 import com.bridgelabz.objectOriented.InventorySystem.Model.Inventory;
 
-public interface InventoryManagement {
+public interface IInventoryManagement {
 
 	public boolean addNewItem(Inventory newItem);
 	

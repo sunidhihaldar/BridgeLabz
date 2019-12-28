@@ -14,7 +14,7 @@ public class Basic {
 	public static void main(String[] args) throws Exception {
 		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/shell", "root", "mysql");
 //		String query = "insert into emp (id,name) values(?,?)";
-////		PreparedStatement pst = conn.prepareStatement(query);
+////		PreparedStatement pst = con.prepareStatement(query);
 ////		pst.setInt(1, 10);
 ////		pst.setString(2, "ramesh");
 //		

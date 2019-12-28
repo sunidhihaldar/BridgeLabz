@@ -1,6 +1,6 @@
 package com.bridgelabz.designPattern.structuralDesignPattern.Adapter;
 
-public class SocketObjectAdapterImpl implements SocketAdapter{
+public class SocketObjectAdapterImpl implements ISocketAdapter{
 
 	//Using Composition for adapter pattern
 	private Socket sock = new Socket();

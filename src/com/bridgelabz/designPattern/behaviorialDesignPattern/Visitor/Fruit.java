@@ -1,6 +1,6 @@
 package com.bridgelabz.designPattern.behaviorialDesignPattern.Visitor;
 
-public class Fruit implements ItemElement {
+public class Fruit implements IItemElement {
 	
 	private int pricePerKg;
 	private int weight;
@@ -26,7 +26,7 @@ public class Fruit implements ItemElement {
 	}
 	
 	@Override
-	public int accept(ShoppingCartVisitor visitor) {
+	public int accept(IShoppingCartVisitor visitor) {
 		return visitor.visit(this);
 	}
 

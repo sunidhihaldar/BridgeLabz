@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import com.bridgelabz.objectOriented.InventorySystem.Model.Inventory;
 
-public interface InventoryOpsMethods {
+public interface IInventoryOpsMethods {
 
 	public int calculateTotalWeight(ArrayList<Inventory> inventoryList);
 	

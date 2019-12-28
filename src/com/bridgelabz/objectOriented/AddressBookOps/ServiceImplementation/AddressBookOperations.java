@@ -3,7 +3,7 @@ package com.bridgelabz.objectOriented.AddressBookOps.ServiceImplementation;
 import java.util.ArrayList;
 
 import com.bridgelabz.objectOriented.AddressBookOps.Model.Contact;
-import com.bridgelabz.objectOriented.AddressBookOps.Service.AddressBookInterface;
+import com.bridgelabz.objectOriented.AddressBookOps.Service.IAddressBook;
 import com.bridgelabz.util.JsonUtil;
 
 /**
@@ -17,7 +17,7 @@ import com.bridgelabz.util.JsonUtil;
  * @version 13.0.1
  */
 
-public class AddressBookOperations implements AddressBookInterface {
+public class AddressBookOperations implements IAddressBook {
 
 	String addressBookName;
 	ArrayList<Contact> addressBookList;
@@ -87,7 +87,7 @@ public class AddressBookOperations implements AddressBookInterface {
 	}
 
 	/**
-	 * this method takes class type input parameter and checks if it exixts if
+	 * this method takes class type input parameter and checks if it exists if
 	 * exists then add new contact to the list
 	 * 
 	 * @param contact class type as input parameter
@@ -176,8 +176,9 @@ public class AddressBookOperations implements AddressBookInterface {
 		return true;
 	}
 
-	// prints all details of the contact like first name, last name, mobile number,
-	// address and email id
+	/** 
+	* prints all details of the contact like first name, last name, mobile number, address and email id
+	*/
 	@Override
 	public void printingContactDetails() {
 		System.out.println("Contact list:");

@@ -9,7 +9,7 @@ import com.bridgelabz.objectOriented.AddressBookOps.Model.Contact;
  * @version 13.0.1
  */
 
-public interface AddressBookInterface {
+public interface IAddressBook {
 
 	//to get address book name
 	String getAddressBookName();

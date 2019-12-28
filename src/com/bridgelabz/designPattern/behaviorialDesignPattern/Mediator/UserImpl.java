@@ -2,7 +2,7 @@ package com.bridgelabz.designPattern.behaviorialDesignPattern.Mediator;
 
 public class UserImpl extends User {
 
-	public UserImpl(ChatMediator med, String name) {
+	public UserImpl(IChatMediator med, String name) {
 		super(med, name);
 	}
 

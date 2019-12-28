@@ -24,7 +24,7 @@ public class Patient {
 		return patientName;
 	}
 	
-	public void setName(String patientName) {
+	public void setPatientName(String patientName) {
 		this.patientName = patientName;
 	}
 
